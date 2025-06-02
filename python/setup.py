@@ -37,8 +37,8 @@ def get_lib_path():
 
 LIBS, VERSION = get_lib_path()
 
-include_libs = False
-wheel_include_libs = False
+include_libs = True
+wheel_include_libs = True
 if "bdist_wheel" in sys.argv or os.getenv('CONDA_BUILD'):
     wheel_include_libs = True
 else:
@@ -82,7 +82,6 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: Apache Software License',
     ],
     license='APACHE',
     **setup_kwargs
@@ -90,7 +89,7 @@ setup(
 
 if wheel_include_libs:
     # Wheel cleanup
-    os.remove("MANIFEST.in")
+    # os.remove("MANIFEST.in")
     for path in LIBS:
         _, libname = os.path.split(path)
         os.remove("decord/%s" % libname)

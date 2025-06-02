@@ -1,0 +1,4 @@
+[build-system]
+# XXX: If your project needs other packages to build properly, add them to this list.
+requires = ["numpy>=1.14.0", "setuptools >= 42.0.0"]
+build-backend = "setuptools.build_meta"
